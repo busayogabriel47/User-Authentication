@@ -1,7 +1,7 @@
 import express from 'express';
 import User from '../model/User.js';
 import CryptoJS from 'crypto-js';
-import jwt from 'jsonwebtoken'
+import jwt from 'jsonwebtoken';
 
 
 const router = express.Router();    

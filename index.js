@@ -2,8 +2,14 @@ import express from "express";
 import mongoose from "mongoose";
 import env from 'dotenv'
 import authRoute from './routes/auth.js';
+import user from "./routes/user.js";
+import product from "./routes/product.js"
+import order from "./routes/order.js";
+import cart from "./routes/cart.js"
+import stripeRoute from './routes/stripe.js'
 
 import cors from 'cors';
+
 
 
 env.config()
@@ -13,6 +19,12 @@ app.use(express.json());
 app.use(cors())
 
 app.use('/api/auth', authRoute);
+app.use('/api/users', user)
+app.use('/api/products', product);
+app.use('/api/orders', order)
+app.use('/api/carts', cart );
+app.use('/api/checkout', stripeRoute);
+
 
 
 //Second step: connect server to mongoDB using connection
